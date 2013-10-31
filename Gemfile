@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
+ruby '1.9.3'
 
 gem 'rails', '4.0.0'
+
 
 gem 'sass-rails'
 
@@ -17,6 +19,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'devise', '~> 3.1.1'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
