@@ -26,7 +26,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group: development, :test do
+group :development, :test do
 	gem 'sqlite3'
 end
 
