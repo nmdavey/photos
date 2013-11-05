@@ -1,8 +1,9 @@
 Photos::Application.routes.draw do
   resources :photos
 
+
   devise_for :users
-  root "pages#home"
+  root "photos#index"
   get "about" => "pages#about"
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,10 +1,20 @@
-
-<%= image_tag @photo.image.url(:medium) %>
-<p>
-  <strong>Description:</strong>
-  <%= @photo.description %>
-</p>
-<% if @photo.user == current_user %>
-	<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<% end %>
 <%= link_to 'Back', photos_path %>
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+		<div class="panel panel-default">
+			<div class="panel-heading center">
+				<%= image_tag @photo.image.url(:medium) %>
+			</div>
+			<div class="panel-body">
+				<p><%= @photo.description %></p>
+				<p><strong><%= @photo.user.email if @photo.user %></strong></p>
+				<% if @photo.user == current_user %>
+					<%= link_to edit_photo_path(@photo) do %>
+                <span class='glyphicon glyphicon-edit'></span>
+                Edit
+              <% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

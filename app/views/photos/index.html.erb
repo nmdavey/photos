@@ -1,14 +1,23 @@
+<%= render 'pages/home' unless user_signed_in? %>
 <div id="photos", class="transitions-enabled">
   <% @photos.each do |photo| %>
     <div class="box panel panel-default">
-      <%= image_tag photo.image.url(:medium) %>
+      <%= link_to image_tag(photo.image.url(:medium)), photo %>
       <div class="panel-body">
-        <%= photo.description %></td>
-        <%= photo.user.email if photo.user %>
-        <%= link_to 'Show', photo %>
+        <p><%= photo.description %></td></p>
+        <p><strong><%= photo.user.email if photo.user %></strong></p>
+
         <% if photo.user == current_user %>
-          <%= link_to 'Edit', edit_photo_path(photo) %>
-          <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <div class="actions">
+            <%= link_to edit_photo_path(photo) do %>
+                <span class='glyphicon glyphicon-edit'></span>
+                Edit
+              <% end %>
+            <%= link_to photo, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class='glyphicon glyphicon-trash'></span>
+              Delete
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>
