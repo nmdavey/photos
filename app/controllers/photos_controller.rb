@@ -5,7 +5,7 @@ class PhotosController < ApplicationController
 
 
   def index
-    @photos = Photo.all
+    @photos = Photo.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 2)
   end
 
   def show
@@ -23,7 +23,7 @@ class PhotosController < ApplicationController
       if @photo.save
         redirect_to @photo, notice: 'Photo was successfully created.'
       else
-        html { render action: 'new' }
+        render action: 'new'
       end
   end
 

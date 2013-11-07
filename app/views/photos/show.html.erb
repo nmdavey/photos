@@ -7,7 +7,7 @@
 			</div>
 			<div class="panel-body">
 				<p><%= @photo.description %></p>
-				<p><strong><%= @photo.user.email if @photo.user %></strong></p>
+				<p><strong><%= @photo.user.name if @photo.user %></strong></p>
 				<% if @photo.user == current_user %>
 					<%= link_to edit_photo_path(@photo) do %>
                 <span class='glyphicon glyphicon-edit'></span>

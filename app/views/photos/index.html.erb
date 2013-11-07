@@ -5,7 +5,7 @@
       <%= link_to image_tag(photo.image.url(:medium)), photo %>
       <div class="panel-body">
         <p><%= photo.description %></td></p>
-        <p><strong><%= photo.user.email if photo.user %></strong></p>
+        <p><strong><%= photo.user.name if photo.user %></strong></p>
 
         <% if photo.user == current_user %>
           <div class="actions">
@@ -22,6 +22,9 @@
       </div>
     </div>
   <% end %>
+</div>
+<div class="center">
+  <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
 </div>
 
 
