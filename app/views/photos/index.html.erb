@@ -6,6 +6,7 @@
       <div class="panel-body">
         <p><%= photo.description %></td></p>
         <p><strong><%= photo.user.name if photo.user %></strong></p>
+        <p><strong><%= photo.user.email if photo.user %></strong></p>
 
         <% if photo.user == current_user %>
           <div class="actions">
